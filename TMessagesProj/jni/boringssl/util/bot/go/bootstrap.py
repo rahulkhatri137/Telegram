@@ -77,7 +77,7 @@ def get_toolset_url():
   if not variant:
     # TODO(vadimsh): Compile go lang from source.
     raise Failure('Unrecognized platform')
-  return '%s/%s.%s' % (DOWNLOAD_URL_PREFIX, TOOLSET_VERSION, variant)
+  return f'{DOWNLOAD_URL_PREFIX}/{TOOLSET_VERSION}.{variant}'
 
 
 def read_file(path):
@@ -242,7 +242,7 @@ def get_go_environ(
 
 def get_go_exe(toolset_root):
   """Returns path to go executable."""
-  return os.path.join(toolset_root, 'go', 'bin', 'go' + EXE_SFX)
+  return os.path.join(toolset_root, 'go', 'bin', f'go{EXE_SFX}')
 
 
 def bootstrap(logging_level):

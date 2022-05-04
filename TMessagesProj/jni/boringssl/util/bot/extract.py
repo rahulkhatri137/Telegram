@@ -68,7 +68,7 @@ def IterateTar(path, compression):
   IterateTar opens the tar.gz or tar.bz2 file at path and returns a generator of
   entry objects for each file in it.
   """
-  with tarfile.open(path, 'r:' + compression) as tar_file:
+  with tarfile.open(path, f'r:{compression}') as tar_file:
     for info in tar_file:
       if info.isdir():
         pass
